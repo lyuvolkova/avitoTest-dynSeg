@@ -1,0 +1,7 @@
+PATCH http://localhost:8080/users/89/segments
+Content-Type: application/json
+
+{
+  "add_slug": ["avito_discount_30"],
+  "delete_slug": ["avito_discount_50"]
+}

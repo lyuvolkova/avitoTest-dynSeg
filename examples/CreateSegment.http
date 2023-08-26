@@ -1,0 +1,6 @@
+POST http://localhost:8080/segments
+Content-Type: application/json
+
+{
+  "slug": "avito_discount_30"
+}
