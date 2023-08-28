@@ -27,6 +27,8 @@ func sendResponse(response interface{}, err error, w http.ResponseWriter) {
 			statusCode = http.StatusBadRequest
 		case errors.Is(err, ErrNotImplemented):
 			statusCode = http.StatusNotImplemented
+		case errors.Is(err, ErrConflict):
+			statusCode = http.StatusConflict
 		}
 
 		response = ErrorResponse{

@@ -1,8 +1,9 @@
 package service
 
 type app struct {
+	sp segmentsRepo
 }
 
-func New() *app {
-	return &app{}
+func New(sp segmentsRepo) *app {
+	return &app{sp: sp}
 }

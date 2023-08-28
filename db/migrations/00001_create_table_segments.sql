@@ -2,10 +2,12 @@
 -- +goose StatementBegin
 create table segments
 (
-    "segmentID" integer not null
+    "segmentID" serial not null
         constraint segments_pk
             primary key,
     slug        text    not null
+        constraint segments_slug_uniq_idx
+            unique
 );
 -- +goose StatementEnd
 
