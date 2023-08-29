@@ -9,7 +9,7 @@ type GetUserSegmentsRequest struct {
 }
 
 type GetUserSegmentsResponse struct {
-	Segments []string `json:"segments"`
+	Slugs []string `json:"slugs"`
 }
 
 func (h *handler) getUserSegments(w http.ResponseWriter, r *http.Request) {
