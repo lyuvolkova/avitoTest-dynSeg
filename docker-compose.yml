@@ -16,12 +16,26 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
 
   db-migrate:
     image: gomicro/goose:3.7.0
     volumes:
       - ./db/migrations:/migrations
     command: goose -s postgres "postgres://postgres@db:5432/postgres?sslmode=disable" up
+    depends_on:
+      db:
+        condition: service_healthy
+
+  service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_DSN: postgres://postgres@db:5432/postgres?sslmode=disable
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
     depends_on:
       db:
         condition: service_healthy
