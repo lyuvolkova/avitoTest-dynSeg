@@ -14,6 +14,11 @@ type DeleteSegmentRequest struct {
 }
 
 // swagger:response deleteSegmentResponse
+type swaggerDeleteSegmentResponse struct {
+	// in: body
+	Body DeleteSegmentResponse
+}
+
 type DeleteSegmentResponse struct {
 	Ok bool `json:"ok"`
 }

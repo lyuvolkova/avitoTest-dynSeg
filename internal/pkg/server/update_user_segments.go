@@ -29,6 +29,11 @@ type UpdateUserSegmentsRequest struct {
 }
 
 // swagger:response updateUserSegmentsResponse
+type swaggerUpdateUserSegmentsResponse struct {
+	// in: body
+	Body UpdateUserSegmentsResponse
+}
+
 type UpdateUserSegmentsResponse struct {
 	Ok bool `json:"ok"`
 }

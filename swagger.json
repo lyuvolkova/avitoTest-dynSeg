@@ -144,6 +144,53 @@
       },
       "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
     },
+    "CreateSegmentResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean",
+          "x-go-name": "Ok"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
+    "DeleteSegmentResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean",
+          "x-go-name": "Ok"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "x-go-name": "Error"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
+    "GetUserSegmentsResponse": {
+      "type": "object",
+      "properties": {
+        "slugs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Slugs",
+          "example": [
+            "avito_discount_70",
+            "avito_discount_50"
+          ]
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
     "UpdateUserSegmentsRequest": {
       "type": "object",
       "properties": {
@@ -172,54 +219,47 @@
         }
       },
       "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
+    "UpdateUserSegmentsResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean",
+          "x-go-name": "Ok"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
     }
   },
   "responses": {
     "createSegmentResponse": {
       "description": "",
-      "headers": {
-        "ok": {
-          "type": "boolean"
-        }
+      "schema": {
+        "$ref": "#/definitions/CreateSegmentResponse"
       }
     },
     "deleteSegmentResponse": {
       "description": "",
-      "headers": {
-        "ok": {
-          "type": "boolean"
-        }
+      "schema": {
+        "$ref": "#/definitions/DeleteSegmentResponse"
       }
     },
     "errorResponse": {
       "description": "",
-      "headers": {
-        "error": {
-          "type": "string"
-        }
+      "schema": {
+        "$ref": "#/definitions/ErrorResponse"
       }
     },
     "getUserSegmentsResponse": {
       "description": "",
-      "headers": {
-        "slugs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "example": [
-            "avito_discount_70",
-            "avito_discount_50"
-          ]
-        }
+      "schema": {
+        "$ref": "#/definitions/GetUserSegmentsResponse"
       }
     },
     "updateUserSegmentsResponse": {
       "description": "",
-      "headers": {
-        "ok": {
-          "type": "boolean"
-        }
+      "schema": {
+        "$ref": "#/definitions/UpdateUserSegmentsResponse"
       }
     }
   }

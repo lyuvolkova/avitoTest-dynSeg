@@ -11,6 +11,11 @@ import (
 )
 
 // swagger:response errorResponse
+type swaggerErrorResponse struct {
+	// in: body
+	Body ErrorResponse
+}
+
 type ErrorResponse struct {
 	Error string `json:"error"`
 }

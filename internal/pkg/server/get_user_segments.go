@@ -12,6 +12,11 @@ type GetUserSegmentsRequest struct {
 }
 
 // swagger:response getUserSegmentsResponse
+type swaggerGetUserSegmentsResponse struct {
+	// in: body
+	Body GetUserSegmentsResponse
+}
+
 type GetUserSegmentsResponse struct {
 	// example: ["avito_discount_70", "avito_discount_50"]
 	Slugs []string `json:"slugs"`

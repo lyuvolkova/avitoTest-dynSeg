@@ -17,6 +17,11 @@ type CreateSegmentRequest struct {
 }
 
 // swagger:response createSegmentResponse
+type swaggerCreateSegmentResponse struct {
+	// in: body
+	Body CreateSegmentResponse
+}
+
 type CreateSegmentResponse struct {
 	Ok bool `json:"ok"`
 }
