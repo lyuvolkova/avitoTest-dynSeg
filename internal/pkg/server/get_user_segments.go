@@ -7,11 +7,13 @@ import (
 // swagger:parameters getUserSegments
 type GetUserSegmentsRequest struct {
 	// in: path
+	// example: 89
 	UserID int64 `json:"userID"`
 }
 
 // swagger:response getUserSegmentsResponse
 type GetUserSegmentsResponse struct {
+	// example: ["avito_discount_70", "avito_discount_50"]
 	Slugs []string `json:"slugs"`
 }
 

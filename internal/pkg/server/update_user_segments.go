@@ -16,9 +16,13 @@ type swaggerUpdateUserSegmentsRequest struct {
 
 type UpdateUserSegmentsRequest struct {
 	// добавляет пользователя в эти сегменты
+	//
+	//   example: ["avito_discount_70", "avito_discount_50"]
 	AddSlug []string `json:"add_slug"`
 
 	// удаляет пользователя из этих сегментов
+	//
+	// example: ["avito_discount_30"]
 	DeleteSlug []string `json:"delete_slug"`
 
 	UserID int64 `json:"-"`

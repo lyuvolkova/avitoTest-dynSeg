@@ -9,6 +9,7 @@ import (
 // swagger:parameters deleteSegment
 type DeleteSegmentRequest struct {
 	// in: path
+	// example: avito_discount_70
 	Slug string `json:"slug"`
 }
 

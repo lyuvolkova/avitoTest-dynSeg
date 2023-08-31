@@ -53,6 +53,7 @@
         "parameters": [
           {
             "type": "string",
+            "example": "avito_discount_70",
             "x-go-name": "Slug",
             "name": "slug",
             "in": "path",
@@ -80,6 +81,7 @@
           {
             "type": "integer",
             "format": "int64",
+            "example": 89,
             "x-go-name": "UserID",
             "name": "userID",
             "in": "path",
@@ -136,7 +138,8 @@
       "properties": {
         "slug": {
           "type": "string",
-          "x-go-name": "Slug"
+          "x-go-name": "Slug",
+          "example": "avito_discount_90"
         }
       },
       "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
@@ -150,7 +153,11 @@
           "items": {
             "type": "string"
           },
-          "x-go-name": "AddSlug"
+          "x-go-name": "AddSlug",
+          "example": [
+            "avito_discount_70",
+            "avito_discount_50"
+          ]
         },
         "delete_slug": {
           "description": "удаляет пользователя из этих сегментов",
@@ -158,7 +165,10 @@
           "items": {
             "type": "string"
           },
-          "x-go-name": "DeleteSlug"
+          "x-go-name": "DeleteSlug",
+          "example": [
+            "avito_discount_30"
+          ]
         }
       },
       "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
@@ -196,7 +206,11 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "example": [
+            "avito_discount_70",
+            "avito_discount_50"
+          ]
         }
       }
     },

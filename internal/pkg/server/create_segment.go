@@ -12,6 +12,7 @@ type swaggerCreateSegmentRequest struct {
 }
 
 type CreateSegmentRequest struct {
+	// example: avito_discount_90
 	Slug string `json:"slug"`
 }
 
