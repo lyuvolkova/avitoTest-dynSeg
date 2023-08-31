@@ -1,0 +1,212 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Позволяет управлять сегментами и пользователями в них.",
+    "title": "Сервис сегментов пользователя",
+    "version": "0.0.1"
+  },
+  "host": "localhost:8080",
+  "paths": {
+    "/segments": {
+      "post": {
+        "description": "Создает новый сегмент",
+        "tags": [
+          "segments"
+        ],
+        "operationId": "createSegment",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateSegmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createSegmentResponse"
+          },
+          "500": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/segments/{slug}": {
+      "delete": {
+        "description": "Удаляет сегмент",
+        "tags": [
+          "segments"
+        ],
+        "operationId": "deleteSegment",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "Slug",
+            "name": "slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/deleteSegmentResponse"
+          },
+          "500": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/users/{userID}/segments": {
+      "get": {
+        "description": "Возвращает сегменты, в которых состоит пользователь",
+        "tags": [
+          "user-segments"
+        ],
+        "operationId": "getUserSegments",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "UserID",
+            "name": "userID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getUserSegmentsResponse"
+          },
+          "500": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      },
+      "patch": {
+        "description": "Обновляет сегменты у пользователя",
+        "tags": [
+          "user-segments"
+        ],
+        "operationId": "updateUserSegments",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserSegmentsRequest"
+            }
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "UserID",
+            "name": "userID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/updateUserSegmentsResponse"
+          },
+          "500": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateSegmentRequest": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string",
+          "x-go-name": "Slug"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    },
+    "UpdateUserSegmentsRequest": {
+      "type": "object",
+      "properties": {
+        "add_slug": {
+          "description": "добавляет пользователя в эти сегменты",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AddSlug"
+        },
+        "delete_slug": {
+          "description": "удаляет пользователя из этих сегментов",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "DeleteSlug"
+        }
+      },
+      "x-go-package": "github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
+    }
+  },
+  "responses": {
+    "createSegmentResponse": {
+      "description": "",
+      "headers": {
+        "ok": {
+          "type": "boolean"
+        }
+      }
+    },
+    "deleteSegmentResponse": {
+      "description": "",
+      "headers": {
+        "ok": {
+          "type": "boolean"
+        }
+      }
+    },
+    "errorResponse": {
+      "description": "",
+      "headers": {
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "getUserSegmentsResponse": {
+      "description": "",
+      "headers": {
+        "slugs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "updateUserSegmentsResponse": {
+      "description": "",
+      "headers": {
+        "ok": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

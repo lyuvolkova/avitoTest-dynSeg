@@ -10,6 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// swagger:response errorResponse
 type ErrorResponse struct {
 	Error string `json:"error"`
 }

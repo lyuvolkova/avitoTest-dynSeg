@@ -4,14 +4,24 @@ import (
 	"net/http"
 )
 
+// swagger:parameters getUserSegments
 type GetUserSegmentsRequest struct {
-	UserID int64 `json:"-"`
+	// in: path
+	UserID int64 `json:"userID"`
 }
 
+// swagger:response getUserSegmentsResponse
 type GetUserSegmentsResponse struct {
 	Slugs []string `json:"slugs"`
 }
 
+// swagger:route GET /users/{userID}/segments user-segments getUserSegments
+//
+// Возвращает сегменты, в которых состоит пользователь
+//
+//		Responses:
+//		  200: getUserSegmentsResponse
+//	      500: errorResponse
 func (h *handler) getUserSegments(w http.ResponseWriter, r *http.Request) {
 	request := GetUserSegmentsRequest{}
 
