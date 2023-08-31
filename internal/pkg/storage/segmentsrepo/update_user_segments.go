@@ -2,6 +2,7 @@ package segmentsrepo
 
 import (
 	"context"
+
 	"github.com/lib/pq"
 )
 

@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
+
 	"github.com/lyuvolkova/avitoTest-dynSeg/internal/pkg/server"
 )
 
